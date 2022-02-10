@@ -1,0 +1,30 @@
+data<-cars
+plot(
+  data,
+  main="速度と停止距離の関係",
+  xlim=c(1,38),
+  ylim=c(0,200),
+  xlab="Speed",
+  ylab="Dist",
+  pch=20,
+  col="red",
+  cex=1,
+  lty=3,
+  panel.first=grid(8,8)
+)
+var_1<-c(data[,1])
+var_2<-c(data[,2])
+cor(var_1,var_2)
+#a=3.9324,b=-17.5791
+salse.lm<-lm(var_2~var_1,data=data)
+exp<-predict(salse.lm)
+res<-residuals(salse.lm)
+view<-data.frame(data,exp,res)
+abline(salse.lm)
+summary(salse.lm)
+a <- c(3.9324) #回帰係数
+b <- c(-17.5791) #切片
+exp_30deg=a*30+b
+exp_30deg
+exp_36deg=a*7.5+b
+exp_36deg

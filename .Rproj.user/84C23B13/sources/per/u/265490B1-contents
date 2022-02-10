@@ -1,0 +1,30 @@
+cars
+
+plot(
+  cars,
+  main="車",
+  pch=11,
+  col="blue",
+  cex=1,
+  lty=3,
+  pantel.first=grid(8,8)
+)
+
+data <- c(cars)
+
+var_1 <- c(cars$speed)
+var_2 <- c(cars$dist)
+
+salse.lm <- lm(var_2~var_1,data=data)
+abline(salse.lm)
+summary(salse.lm)
+
+a <- c(3.9324) #回帰係数
+b <- c(-17.5791) #切片
+
+exp_30deg=a*30+b
+exp_36deg=a*36+b
+exp_30deg
+exp_36deg
+#exp_角度=(var_1のEstimateの値）*角度+(interceptのEstimateの値)
+#決定係数＝ Multiple R-squaredの隣の数字ここでは0.6511

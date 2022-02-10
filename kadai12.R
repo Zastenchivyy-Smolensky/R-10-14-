@@ -1,0 +1,13 @@
+dataA<-c(22,19,16,17,19,16,26,24,18,19,13,16,22,18,19,22,19,26)
+dataB<-c(22,20,28,24,22,28,22,19,25,21,23,24,23,23,29,23)
+dataC<-c(30,28,33,28,25,26,24,29,30,28,24,27,25,29,24,28,27)
+
+A<-length(dataA)
+B<-length(dataB)
+C<-length(dataC)
+variate<-c(dataA,dataB,dataC)
+identifier<-factor(c(rep("A",A),rep("B",B),rep("C",C)))
+cat("A社:平均=",mean(dataA),"不偏分散=",var(dataB),"標準偏差＝",sd(dataB),"\n")
+cat("B社:平均=",mean(dataB),"不偏分散=",var(dataB),"標準偏差＝",sd(dataB),"\n")
+cat("C社:平均=",mean(dataC),"不偏分散=",var(dataC),"標準偏差＝",sd(dataC),"\n")
+anova(lm(variate~identifier))
